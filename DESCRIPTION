@@ -1,0 +1,9 @@
+Package: MixTwice
+Type: Package
+Title: A package for large-scale hypothesis testing utilizing high density peptide array
+Version: 1.0
+Date: 2020-09-26
+Author: Zihao Zheng, Miriam A.Shelef, Michael A.Newton
+Maintainer: Zihao Zheng <zihao.zheng@wisc.edu>
+Description: MixTwice is a R package for large-scale testing utilizing high density peptide array. It take estimated effect size and its standard error as input and output the local false discovery rate (lfdr) and local false sign rate (lfsr). MixTwice uses flexible nonparametric Empirical Bayes (EB) to estimate the underlying distribution. As the name suggests, considering both effect size and standard error as unknown random variables, MixTwice attempts to estimate their underlying distributions.
+License: GPL-2
