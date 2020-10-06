@@ -2,27 +2,28 @@
 \alias{mixtwice}
 \title{Large-scale hypothesis testing for high density peptide array by variance mixting}
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+MixTwice deploys large-scale hypothesis testing in the case when testing units provide estimated effects and
+estimated standard errors.  It produces empirical Bayesian local false discovery and sign rates for tests of zero effect.
 }
 \usage{
 mixtwice(theta, s2, Btheta, Bsigma, df, prop)
 }
 \arguments{
-  \item{theta}{Estimated effect size}
-  \item{s2}{Estimated standard error for effect size}
-  \item{Btheta}{Half number of grid to estimated the distribution of effect size}
-  \item{Bsigma}{Number of grid to estimated the distribution of standard error}
-  \item{df}{Degree of freedom in chisquare distribution of estimated standard error}
-  \item{prop}{Proportion of units randomly selected to fit the distribution}
+  \item{thetaHat}{Estimated effect size (vector over testing units))}
+  \item{s2}{Estimated standard errors of thetaHat}
+  \item{Btheta}{Grid size parameter for effect distribution}
+  \item{Bsigma}{Grid size parameter for variance distribution}
+  \item{df}{Degrees of freedom in chisquare associated with  estimated standard error}
+  \item{prop}{Proportion of units randomly selected to fit the distribution **??**}
 }
 \details{
-\code{mixtwice} is a R function that takes estimated effect size and its standard error as input. It uses nonparametric MLE to fit the underlying distribution of effect size and standard error. By "mixing" on both effect size and variance, it could achieve promising statistical properties (i.e., FDR control, power, reproducibility, robustness) in large-scale testing.
+\code{mixtwice} is a R function that takes estimated effects and standard errors. It uses nonparametric MLE to fit the underlying distribution of effect size and standard error in a model that mixes over both unknowns. 
 }
 \value{
-\item{grid.theta}{Grid of distribution of effect size}
-\item{grid.sigma}{Grid of distribution of standard error}
-\item{prior.theta}{Estimated distribution of effect size, on grid.theta}
-\item{prior.sigma}{Estimated distribution of standard error, on grid.sigma}
+\item{grid.theta}{Support of the estimated mixing distribution on effects}
+\item{grid.sigma}{Support of the estimated mixing distribution of variances}
+\item{prior.theta}{Estimated distribution of effect size, on grid.theta **call it mix not prior**}
+\item{prior.sigma}{Estimated distribution of standard error, on grid.sigma **call it mix not prior**}
 \item{lfdr}{Local false discovery rate for each testing unit}
 \item{lfsr}{Local false sign rate for each testing unit}
 }
@@ -30,10 +31,10 @@ mixtwice(theta, s2, Btheta, Bsigma, df, prop)
 cite our manuscript (on either github or ArXiv)
 }
 \author{
-Zihao Zheng, Miriam A.Shelef, Michael A.Newton
+Zihao Zheng,  Michael A.Newton
 }
 \note{
-further notes~~
+cite the biorxiv/arxiv paper
 }
 
 \seealso{
