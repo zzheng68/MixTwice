@@ -1,7 +1,7 @@
 mixtwice <-
 function(thetaHat, s2, Btheta, Bsigma, df, prop){
   ## give another notation for convenience
-  theta0=theta
+  theta0=thetaHat
   s20=s2
   
   ## let's first sample using "prop"
@@ -246,8 +246,8 @@ function(thetaHat, s2, Btheta, Bsigma, df, prop){
   
   return(list(grid.theta=gridtheta, 
               grid.sigma = gridsigma, 
-              prior.theta=est.theta, 
-              prior.sigma=est.sigma, 
+              mix.theta=est.theta, 
+              mix.sigma=est.sigma, 
               lfdr=lfdr, 
               lfsr=lfsr))
   
