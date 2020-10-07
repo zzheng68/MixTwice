@@ -22,8 +22,8 @@ mixtwice(theta, s2, Btheta, Bsigma, df, prop)
 \value{
 \item{grid.theta}{Support of the estimated mixing distribution on effects}
 \item{grid.sigma}{Support of the estimated mixing distribution of variances}
-\item{prior.theta}{Estimated distribution of effect size, on grid.theta **call it mix not prior**}
-\item{prior.sigma}{Estimated distribution of standard error, on grid.sigma **call it mix not prior**}
+\item{mix.theta}{Estimated distribution of effect size, on grid.theta}
+\item{mix.sigma}{Estimated distribution of standard error, on grid.sigma}
 \item{lfdr}{Local false discovery rate for each testing unit}
 \item{lfsr}{Local false sign rate for each testing unit}
 }
