@@ -91,10 +91,10 @@ p2 = 2*(1-pnorm(abs(z2)))
 
 library(alabama)
 
-mixtwice1 = mixtwice(theta = delta1, s2 = sigma1^2, 
+mixtwice1 = mixtwice(thetaHat = delta1, s2 = sigma1^2, 
                  Btheta = 15, Bsigma = 10, df = 22, prop = 0.01)$lfsr
 
-mixtwice2 = mixtwice(theta = delta2, s2 = sigma2^2, 
+mixtwice2 = mixtwice(thetaHat = delta2, s2 = sigma2^2, 
                  Btheta = 15, Bsigma = 10, df = 14, prop = 0.01)$lfsr
 
 #### Apply on other large-scale testing
