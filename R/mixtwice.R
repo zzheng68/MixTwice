@@ -1,5 +1,5 @@
 mixtwice <-
-function(theta, s2, Btheta, Bsigma, df, prop){
+function(thetaHat, s2, Btheta, Bsigma, df, prop){
   ## give another notation for convenience
   theta0=theta
   s20=s2
