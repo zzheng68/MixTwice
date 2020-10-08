@@ -1,6 +1,6 @@
 # MixTwice
 
-This is a Github reporsitory for MixTwice study
+This is a Github reporsitory for MixTwice study and Rpackage.
 
 ## For MixTwice R package install
 
