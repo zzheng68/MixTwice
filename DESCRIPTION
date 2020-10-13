@@ -1,9 +1,10 @@
 Package: MixTwice
 Type: Package
-Title: A package for large-scale hypothesis testing 
+Title: MixTwice: A package for large-scale hypothesis testing 
 Version: 1.0
 Date: 2020-09-26
 Authors: Zihao Zheng and  Michael A.Newton
 Maintainer: Zihao Zheng <zihao.zheng@wisc.edu>
-Description: MixTwice is a R package for large-scale hypothesis testing. For input it takes two statistics per testing unit, an  estimated effect and its associated standard error. Using an estimated mixture over underlying effects and variances, it   reports local false discovery rates (lfdr) and local false sign rates (lfsr). 
+Description: MixTwice is a R package for large-scale hypothesis testing. It takes two statistics per testing unit -- an  estimated effect and its associated standard error -- and fits a nonparametric, shape-constrained mixture separately on two latent
+parameters. It   reports local false discovery rates (lfdr) and local false sign rates (lfsr). 
 License: GPL-2
