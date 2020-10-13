@@ -21,7 +21,10 @@ The DESCRIPTION file:
 Maintainer: \packageMaintainer{MixTwice}
 }
 \references{
-Zheng, Zihao, et al. \emph{Disordered Antigens and Epitope Overlap Between Anti Citrullinated Protein Antibodies and Rheumatoid Factor in Rheumatoid Arthritis.} \bold{Arthritis & Rheumatology} 72.2 (2020): 262-272.
+Zheng et al. \emph{MixTwice: Large scale hypothesis testing for peptide 
+arrays by variance mixing}. Technical Report, October 2020.
+
+Zheng  et al. \emph{Disordered Antigens and Epitope Overlap Between Anti Citrullinated Protein Antibodies and Rheumatoid Factor in Rheumatoid Arthritis.} \bold{Arthritis & Rheumatology} 72.2 (2020): 262-272.
 }
 \keyword{ package }
 \seealso{
