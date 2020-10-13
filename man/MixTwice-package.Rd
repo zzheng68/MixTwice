@@ -23,8 +23,6 @@ Maintainer: \packageMaintainer{MixTwice}
 \references{
 Zheng, Zihao, et al. \emph{Disordered Antigens and Epitope Overlap Between Anti Citrullinated Protein Antibodies and Rheumatoid Factor in Rheumatoid Arthritis.} \bold{Arthritis & Rheumatology} 72.2 (2020): 262-272.
 }
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in the ~~
-~~ R documentation directory ~~
 \keyword{ package }
 \seealso{
 A website as reference for the arrya data
