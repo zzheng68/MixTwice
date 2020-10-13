@@ -32,7 +32,7 @@ Zheng  et al. \emph{Disordered Antigens and Epitope Overlap Between Anti Citrull
 }
 \examples{
 
-data(array1); data(array2)
+data(array); data(array2)
+## For more detail and example, use ?array and ?mixtwice
 
-## For more detail and example, use ?array1, ?array2 and ?mixtwice
 }
