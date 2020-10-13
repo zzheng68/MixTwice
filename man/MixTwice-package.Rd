@@ -7,13 +7,16 @@
 }
 \description{
 \packageDescription{MixTwice}
+ A package for large-scale testing that computes local false sign rate or local
+false discovery rate. Each unit provides an effect estimate 
+and an estimated standard error.   
 }
 \details{
 
 The DESCRIPTION file:
 \packageDESCRIPTION{MixTwice}
 \packageIndices{MixTwice}
-MixTwice is a R package containning one main function and two high density peptide array data sets (array1 and array2) as an example.
+
 }
 \author{
 \packageAuthor{MixTwice}
