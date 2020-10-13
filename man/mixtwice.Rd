@@ -17,7 +17,8 @@ mixtwice(theta, s2, Btheta, Bsigma, df, prop)
   \item{prop}{Proportion of units randomly selected to fit the distribution **??**}
 }
 \details{
-\code{mixtwice} is a R function that takes estimated effects and standard errors. It uses nonparametric MLE to fit the underlying distribution of effect size and standard error in a model that mixes over both unknowns. 
+\code{mixtwice} is a R function that takes estimated effects and standard errors. To compute local error-rate statistics,
+it finds nonparametric  MLEs of the underlying distributioons.
 }
 \value{
 \item{grid.theta}{Support of the estimated mixing distribution on effects}

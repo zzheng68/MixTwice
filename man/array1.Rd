@@ -1,15 +1,15 @@
 \name{array1}
 \alias{array1}
 \docType{data}
-\title{Data 1 for CCP+RF+ vs Control peptide array.}
+\title{Data set for CCP+RF+ vs Control peptide array (study 1).}
 \description{
 %%  ~~ A concise (1-5 lines) description of the dataset. ~~
 }
 \usage{data("array1")}
 \format{
-  A data frame with 152603 observations on the following 24 variables.
+  A data frame with 152603 peptide measurements on 24 subjects:.
   \describe{
-    First 12 columns are CCP+RF+ RA patients and the last columns are healthy controls
+    the first 12 columns are CCP+RF+ RA patients and the last columns are control subjects.
   }
 }
 \details{

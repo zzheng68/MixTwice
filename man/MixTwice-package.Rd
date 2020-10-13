@@ -13,7 +13,7 @@
 The DESCRIPTION file:
 \packageDESCRIPTION{MixTwice}
 \packageIndices{MixTwice}
-MixTwice is a R package containning 1 main function and 2 high density peptide array data sets (array1 and array2) as an example.
+MixTwice is a R package containning one main function and two high density peptide array data sets (array1 and array2) as an example.
 }
 \author{
 \packageAuthor{MixTwice}

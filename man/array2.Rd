@@ -7,9 +7,9 @@
 }
 \usage{data("array2")}
 \format{
-  A data frame with 152603 observations on the following 16 variables.
+  A data frame with 152603 peptide measurements on each of 16 subjects:
   \describe{
-    First 12 columns are CCP+RF+ RA patients and the last columns are healthy controls
+    the first 12 columns are CCP+RF+ RA patients and the last columns are controls subjects
   }
 }
 \details{
