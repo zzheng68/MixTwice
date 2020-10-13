@@ -1,6 +1,6 @@
 Package: MixTwice
 Type: Package
-Title: A package for large-scale hypothesis testing utilizing high density peptide array
+Title: A package for large-scale hypothesis testing 
 Version: 1.0
 Date: 2020-09-26
 Authors: Zihao Zheng and  Michael A.Newton
