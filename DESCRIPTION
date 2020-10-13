@@ -1,8 +1,8 @@
 Package: MixTwice
 Type: Package
 Title: MixTwice: A package for large-scale hypothesis testing 
-Version: 1.0
-Date: 2020-09-26
+Version: 1.1
+Date: 2020-10-12
 Authors: Zihao Zheng and  Michael A.Newton
 Maintainer: Zihao Zheng <zihao.zheng@wisc.edu>
 Description: MixTwice is a R package for large-scale hypothesis testing. It takes two statistics per testing unit -- an  estimated effect and its associated standard error -- and fits a nonparametric, shape-constrained mixture separately on two latent
