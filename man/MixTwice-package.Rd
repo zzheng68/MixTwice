@@ -7,9 +7,6 @@
 }
 \description{
 \packageDescription{MixTwice}
- A package for large-scale testing that computes local false sign rate or local
-false discovery rate. Each unit provides an effect estimate 
-and an estimated standard error.   
 }
 \details{
 
@@ -28,7 +25,6 @@ Zheng, Zihao, et al. \emph{Disordered Antigens and Epitope Overlap Between Anti 
 }
 \keyword{ package }
 \seealso{
-A website as reference for the arrya data
 \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/art.41074}
 }
 \examples{
