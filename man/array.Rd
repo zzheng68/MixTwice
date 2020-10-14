@@ -1,11 +1,11 @@
-\name{array}
-\alias{array}
+\name{peptide_data}
+\alias{peptide_data}
 \docType{data}
 \title{Peptide array data example}
 \description{
 %%  ~~ A concise (1-5 lines) description of the dataset. ~~
 }
-\usage{data("array")}
+\usage{data("peptide_data")}
 \format{
   A data frame with 152603 observations on the following 16 variables.
   \describe{
@@ -22,29 +22,36 @@ Zheng, Zihao, et al. \emph{Disordered Antigens and Epitope Overlap Between Anti 
 \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/art.41074}
 }
 \examples{
-## load the RA data
+#### load the RA data
 
-data(array)
+data(peptide_data)
 
-## z-score
+#### pre-process the data
 
-get_zscore = function(x){
-  
-  x1 = x[1:length(x)/2]
-  x2 = x[(length(x)/2+1):length(x)]
-  
-  t = t.test(x1, x2, var.equal = T)$statistic
-  
-  z = qnorm(pt(t, df = length(x)-2))
-  
-  return(z)
-}
+## each row is a peptide and each column is a subject; try rownames(peptide_data),colnames(peptide_data) 
 
-z = apply(array, 1, get_zscore)
+## effect size
 
-## visualize z-score
+thetaHat = apply(peptide_data[1:8], 1, mean) - apply(peptide_data[9:16], 1, mean)
 
-hist(z, probability = T, col = "blue", 100)
-lines(density(rnorm(10^5)), lty = 2, lwd = 2)
+## standard error
+
+sd1 = apply(peptide_data[,1:8], 1, sd)
+sd0 = apply(peptide_data[,9:16], 1, sd)
+
+s2 = sd1^2/8 + sd0^2/8
+
+#### Apply on MixTwice
+
+mm = mixtwice(thetaHat = thetaHat, s2 = s2, 
+                  Btheta = 15, Bsigma = 10, df = 14, prop = 0.01)
+
+plot(mm$grid.theta, cumsum(mm$mix.theta), type = "s", 
+     xlab = "grid.theta", ylab = "ecdf of theta", lwd = 2)
+plot(mm$grid.sigma, cumsum(mm$mix.sigma), type = "s",
+     xlab = "grid.sigma", ylab = "ecdf of sigma", lwd = 2)
+
+summary(mm$lfsr)
+
 }
 \keyword{datasets}
