@@ -1,6 +1,6 @@
 \name{mixtwice}
 \alias{mixtwice}
-\title{Large-scale hypothesis testing for high density peptide array by variance mixting}
+\title{Large-scale hypothesis testing by variance mixing}
 \description{
 MixTwice deploys large-scale hypothesis testing in the case when testing units provide estimated effects and
 estimated standard errors.  It produces empirical Bayesian local false discovery and sign rates for tests of zero effect.
@@ -14,7 +14,7 @@ mixtwice(thetaHat, s2, Btheta, Bsigma, df, prop)
   \item{Btheta}{Grid size parameter for effect distribution}
   \item{Bsigma}{Grid size parameter for variance distribution}
   \item{df}{Degrees of freedom in chisquare associated with  estimated standard error}
-  \item{prop}{Proportion of units randomly selected to fit the distribution **??**}
+  \item{prop}{Proportion of units randomly selected to fit the distribution}
 }
 \details{
 \code{mixtwice} is a R function that takes estimated effects and standard errors. To compute local error-rate statistics, it finds nonparametric  MLEs of the underlying distributioons.
@@ -38,7 +38,7 @@ cite the biorxiv/arxiv paper
 }
 
 \seealso{
-See Also as \code{?array}
+See Also as \code{?peptide_data}
 }
 \examples{
 #### load the RA data
