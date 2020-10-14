@@ -41,29 +41,100 @@ cite the biorxiv/arxiv paper
 See Also as \code{?peptide_data}
 }
 \examples{
-#### load the RA data
+### basic setting 
 
-data(array)
+pi = 0.5 ## true value of null proportion
 
-#### pre-process the data
+p = 1000; n = 10 ## number of testing units and sample size of each unit
 
-## effect size
+p1=(1-pi)*p; p2=pi*p ## number of non-null and null
 
-delta = apply(array[1:8], 1, mean) - apply(array[9:16], 1, mean)
+### Example 1: for a single group testing problem for zero effect
 
-## standard error
+mu=c(rnorm(round(p1), mean=0, sd=1), rep(0, round(p2)))
 
-sd1 = apply(array[,1:8], 1, sd)
-sd0 = apply(array[,9:16], 1, sd)
+sd=rep(1, p)
 
-sigma = sqrt(sd1^2/8 + sd0^2/8)
+x=NULL
 
-#### Apply on MixTwice
+for (i in 1:(p1+p2)) {
+  
+  xx=rnorm(n, mu[i], sd[i])
+  
+  x=rbind(x,xx)
+}
 
-library(alabama)
 
-result = mixtwice(thetaHat = delta, s2 = sigma^2, 
-                 Btheta = 15, Bsigma = 10, df = 14, prop = 0.01)
+thetaHat = rowMeans(x) ## effect size of each testing unit
+
+s2 = apply(x, 1, sd)^2/n ## estimated variance of effect size
+
+mm1=mixtwice(thetaHat=thetaHat, s2=s2, Btheta = 15, Bsigma = 10, df=n-1, prop=1)
+
+## summarize and visualize the result
+
+# estimated mixing distribution and true mixing distribution
+plot(mm1$grid.theta, cumsum(mm1$mix.theta), type = "s", 
+     xlab = "grid.theta", ylab = "ecdf of theta", lwd = 2)
+lines(ecdf(mu),cex = 0.1, lwd = 0.5, lty = 2, col = "red")
+
+plot(mm1$grid.sigma, cumsum(mm1$mix.sigma), type = "s",
+     xlab = "grid.sigma", ylab = "ecdf of sigma", lwd = 2)
+
+# true positive and false positive rate, under the level of 0.05
+
+mean(mm1$lfsr[1:500]<=0.05) # true positive rate
+mean(mm1$lfsr[501:1000]<=0.05) # false positive rate
+
+# null proportion estimation
+
+max(mm1$mix.theta)
+
+### Example 2: for a two-group comparison testing problem for zero difference
+
+mu0 = rep(0, p)
+mu1=c(rnorm(round(p1), mean=0, sd=1), rep(0, round(p2)))
+
+sd=rep(1, p)
+
+x0<-x1<-NULL
+
+for (i in 1:p) {
+  
+  xx0=rnorm(n, mu0[i], sd[i])
+  
+  x0=rbind(x0,xx0)
+  
+  xx1=rnorm(n, mu1[i], sd[i])
+  
+  x1=rbind(x1,xx1)
+}
+
+
+thetaHat = rowMeans(x1) - rowMeans(x0) ## effect size of each testing unit
+
+s2 = apply(x1, 1, sd)^2/n + apply(x0, 1, sd)^2/n ## estimated variance of effect size
+
+mm2=mixtwice(thetaHat=thetaHat, s2=s2, Btheta = 15, Bsigma = 10, df=2*n-2, prop=1)
+
+## summarize and visualize the result
+
+# estimated mixing distribution and true mixing distribution
+plot(mm2$grid.theta, cumsum(mm2$mix.theta), type = "s", 
+     xlab = "grid.theta", ylab = "ecdf of theta", lwd = 2)
+lines(ecdf(mu),cex = 0.1, lwd = 0.5, lty = 2, col = "red")
+
+plot(mm2$grid.sigma, cumsum(mm2$mix.sigma), type = "s",
+     xlab = "grid.sigma", ylab = "ecdf of sigma", lwd = 2)
+
+# true positive and false positive rate, under the level of 0.05
+
+mean(mm2$lfsr[1:500]<=0.05) # true positive rate
+mean(mm2$lfsr[501:1000]<=0.05) # false positive rate
+
+# null proportion estimation
+
+pi_est = max(mm2$mix.theta)
 }
 \keyword{High density peptide array}
 \keyword{Large-scale hypothesis testing}
