@@ -10,7 +10,7 @@ mixtwice(thetaHat, s2, Btheta, Bsigma, df, prop)
 }
 \arguments{
   \item{thetaHat}{Estimated effect size (vector over testing units))}
-  \item{s2}{Estimated standard errors of thetaHat}
+  \item{s2}{Estimated squared standard errors of thetaHat}
   \item{Btheta}{Grid size parameter for effect distribution}
   \item{Bsigma}{Grid size parameter for variance distribution}
   \item{df}{Degrees of freedom in chisquare associated with  estimated standard error}
@@ -81,6 +81,10 @@ lines(ecdf(mu),cex = 0.1, lwd = 0.5, lty = 2, col = "red")
 plot(mm1$grid.sigma, cumsum(mm1$mix.sigma), type = "s",
      xlab = "grid.sigma", ylab = "ecdf of sigma", lwd = 2)
 
+# effect size and estimated local false discovery rate
+
+plot(thetaHat, mm1$lfdr, pch = ".", cex = 2, xlab = "estimated effect size", ylab = "local false discovery rate")
+
 # true positive and false positive rate, under the level of 0.05
 
 mean(mm1$lfsr[1:500]<=0.05) # true positive rate
@@ -126,6 +130,10 @@ lines(ecdf(mu),cex = 0.1, lwd = 0.5, lty = 2, col = "red")
 
 plot(mm2$grid.sigma, cumsum(mm2$mix.sigma), type = "s",
      xlab = "grid.sigma", ylab = "ecdf of sigma", lwd = 2)
+
+# effect size and estimated local false discovery rate
+
+plot(thetaHat, mm2$lfdr, pch = ".", cex = 2, xlab = "estimated effect size", ylab = "local false discovery rate")
 
 # true positive and false positive rate, under the level of 0.05
 
