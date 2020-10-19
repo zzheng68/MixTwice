@@ -9,7 +9,7 @@ estimated standard errors.  It produces empirical Bayesian local false discovery
 mixtwice(thetaHat, s2, Btheta, Bsigma, df, prop)
 }
 \arguments{
-  \item{thetaHat}{Estimated effect size (vector over testing units))}
+  \item{thetaHat}{Estimated effect sizes (vector over testing units))}
   \item{s2}{Estimated squared standard errors of thetaHat}
   \item{Btheta}{Grid size parameter for effect distribution}
   \item{Bsigma}{Grid size parameter for variance distribution}
@@ -17,7 +17,7 @@ mixtwice(thetaHat, s2, Btheta, Bsigma, df, prop)
   \item{prop}{Proportion of units randomly selected to fit the distribution}
 }
 \details{
-\code{mixtwice} is a R function that takes estimated effects and standard errors. To compute local error-rate statistics, it finds nonparametric  MLEs of the underlying distributioons.
+\code{mixtwice} takes estimated effects and standard errors over a set of testing units. To compute local error-rate statistics, it finds nonparametric  MLEs of the underlying distributions.
 }
 \value{
 \item{grid.theta}{Support of the estimated mixing distribution on effects}
