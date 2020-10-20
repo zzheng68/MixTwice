@@ -3,7 +3,7 @@
 \docType{data}
 \title{Peptide array data example}
 \description{
-A high-density peptide microarray example that utilizes MixTwice tool to identify peptides for which antibody binding levels differ between control subjects and rheumatoid arthritis (RA) patients expressing a specific disease marker combination (i.e., CCP+RF+ RA). 
+A high-density peptide microarray example to identify peptides for which antibody binding levels differ between control subjects and rheumatoid arthritis (RA) patients expressing a specific disease marker combination (i.e., CCP+RF+ RA). 
 }
 \usage{data("peptide_data")}
 \format{
@@ -13,7 +13,7 @@ A high-density peptide microarray example that utilizes MixTwice tool to identif
   }
 }
 \details{
-Each row of the data (\code{rownames(peptide_data)}) is a probed length-12 peptide and each column of the data (\code{colnames(peptide_data)}) is a subject with distinct pseudo sample ID. The binding value is doubly-log transformed using natural base to stablize variance.
+Each row of the data (\code{rownames(peptide_data)}) is a probed length-12 peptide and each column of the data (\code{colnames(peptide_data)}) is a subject with distinct pseudo sample ID. The binding value is doubly-log transformed using natural base to stabilize variance.
 }
 \source{
 Zheng, Zihao, et al. \emph{Disordered Antigens and Epitope Overlap Between Anti Citrullinated Protein Antibodies and Rheumatoid Factor in Rheumatoid Arthritis.} \bold{Arthritis & Rheumatology} 72.2 (2020): 262-272.

@@ -186,7 +186,7 @@ mixtwice <-
     a=c(a1, a2)
     
     options(warn = -1)
-    try1=auglag(par=a, fn=L,  gr=G, 
+    try1=alabama::auglag(par=a, fn=L,  gr=G, 
                 heq=heq, hin=hin, 
                 heq.jac = heq.jac.fun, hin.jac = hin.jac.fun)
     
