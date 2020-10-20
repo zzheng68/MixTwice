@@ -9,7 +9,7 @@
 \format{
   A data frame with 152603 observations on the following 16 variables.
   \describe{
-    the first 8 columns are RA patients and the rest columns are controls subjects
+    The first 8 columns are RA patients and the remaining columns are from control subjects.
   }
 }
 \details{
