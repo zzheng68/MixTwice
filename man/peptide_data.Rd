@@ -44,12 +44,12 @@ s2 = sd1^2/8 + sd0^2/8
 #### Apply on MixTwice
 
 mm = mixtwice(thetaHat = thetaHat, s2 = s2, 
-                  Btheta = 15, Bsigma = 10, df = 14, prop = 0.01)
+                  Btheta = 15, Bsigma2 = 10, df = 14, prop = 0.01)
 
 plot(mm$grid.theta, cumsum(mm$mix.theta), type = "s", 
      xlab = "grid.theta", ylab = "ecdf of theta", lwd = 2)
-plot(mm$grid.sigma, cumsum(mm$mix.sigma), type = "s",
-     xlab = "grid.sigma", ylab = "ecdf of sigma", lwd = 2)
+plot(mm$grid.sigma2, cumsum(mm$mix.sigma2), type = "s",
+     xlab = "grid.sigma2", ylab = "ecdf of sigma2", lwd = 2)
 
 summary(mm$lfsr)
 
