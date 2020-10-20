@@ -3,7 +3,7 @@
 \docType{data}
 \title{Peptide array data example}
 \description{
-%%  ~~ A concise (1-5 lines) description of the dataset. ~~
+A high-density peptide microarray example that utilizes MixTwice tool to identify peptides for which antibody binding levels differ between control subjects and rheumatoid arthritis (RA) patients expressing a specific disease marker combination (i.e., CCP+RF+ RA). 
 }
 \usage{data("peptide_data")}
 \format{
@@ -13,7 +13,7 @@
   }
 }
 \details{
-%%  ~~ If necessary, more details than the __description__ above ~~
+Each row of the data (\code{rownames(peptide_data)}) is a probed length-12 peptide and each column of the data (\code{colnames(peptide_data)}) is a subject with distinct pseudo sample ID. The binding value is doubly-log transformed using natural base to stablize variance.
 }
 \source{
 Zheng, Zihao, et al. \emph{Disordered Antigens and Epitope Overlap Between Anti Citrullinated Protein Antibodies and Rheumatoid Factor in Rheumatoid Arthritis.} \bold{Arthritis & Rheumatology} 72.2 (2020): 262-272.
@@ -27,8 +27,6 @@ Zheng, Zihao, et al. \emph{Disordered Antigens and Epitope Overlap Between Anti 
 data(peptide_data)
 
 #### pre-process the data
-
-## each row is a peptide and each column is a subject; try rownames(peptide_data),colnames(peptide_data) 
 
 ## effect size
 
