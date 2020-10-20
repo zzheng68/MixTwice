@@ -1,5 +1,6 @@
 mixtwice <-
-function(thetaHat, s2, Btheta, Bsigma, df, prop){
+  function(thetaHat, s2, Btheta, Bsigma2, df, prop = 1){
+    
     ## give another notation for convenience
     theta0=thetaHat
     s20=s2
@@ -16,7 +17,7 @@ function(thetaHat, s2, Btheta, Bsigma, df, prop){
     
     gridtheta=(cc/Btheta)*seq(-Btheta,Btheta,by=1)
     
-    gridsigma=seq(sqrt(min(s2)), sqrt(max(s2)), by=(sqrt(max(s2))-sqrt(min(s2)))/Bsigma)
+    gridsigma=seq(sqrt(min(s2)), sqrt(max(s2)), by=(sqrt(max(s2))-sqrt(min(s2)))/Bsigma2)
     
     ltheta=length(gridtheta)
     lsigma=length(gridsigma)
@@ -244,11 +245,11 @@ function(thetaHat, s2, Btheta, Bsigma, df, prop){
       }
     }
     
-    return(list(grid.theta=gridtheta, 
-                grid.sigma = gridsigma, 
-                mix.theta=est.theta, 
-                mix.sigma=est.sigma, 
+    return(list(grid.theta = gridtheta, 
+                grid.sigma2 = gridsigma^2, 
+                mix.theta = est.theta, 
+                mix.sigma2 = est.sigma, 
                 lfdr=lfdr, 
                 lfsr=lfsr))
     
-}
+  }
