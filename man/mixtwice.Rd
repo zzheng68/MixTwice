@@ -28,7 +28,8 @@ mixtwice(thetaHat, s2, Btheta, Bsigma, df, prop)
 \item{lfsr}{Local false sign rate for each testing unit}
 }
 \references{
-cite our manuscript (on either github or ArXiv)
+Zheng et al. \emph{MixTwice: Large scale hypothesis testing for peptide 
+arrays by variance mixing}. Technical Report, October 2020.
 }
 \author{
 Zihao Zheng,  Michael A.Newton
