@@ -14,7 +14,7 @@ mixtwice(thetaHat, s2, Btheta, Bsigma, df, prop)
   \item{Btheta}{Grid size parameter for effect distribution}
   \item{Bsigma2}{Grid size parameter for variance distribution}
   \item{df}{Degrees of freedom in chisquare associated with  estimated standard error}
-  \item{prop}{Proportion of units randomly selected to fit the distribution}
+  \item{prop}{Proportion of units randomly selected to fit the distribution, with default, \code{prop = 1} (use all units to fit the distribution).}
 }
 \details{
 \code{mixtwice} takes estimated effects and standard errors over a set of testing units. To compute local error-rate statistics, it finds nonparametric  MLEs of the underlying distributions.
