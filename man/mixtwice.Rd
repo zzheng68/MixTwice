@@ -10,7 +10,7 @@ mixtwice(thetaHat, s2, Btheta, Bsigma, df, prop)
 }
 \arguments{
   \item{thetaHat}{Estimated effect sizes (vector over testing units))}
-  \item{s2}{Estimated squared standard errors of thetaHat}
+  \item{s2}{Estimated squared standard errors of thetaHat (vector over testing units)}
   \item{Btheta}{Grid size parameter for effect distribution}
   \item{Bsigma2}{Grid size parameter for variance distribution}
   \item{df}{Degrees of freedom in chisquare associated with  estimated standard error}
