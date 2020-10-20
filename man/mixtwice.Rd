@@ -12,7 +12,7 @@ mixtwice(thetaHat, s2, Btheta, Bsigma, df, prop)
   \item{thetaHat}{Estimated effect sizes (vector over testing units))}
   \item{s2}{Estimated squared standard errors of thetaHat}
   \item{Btheta}{Grid size parameter for effect distribution}
-  \item{Bsigma}{Grid size parameter for variance distribution}
+  \item{Bsigma2}{Grid size parameter for variance distribution}
   \item{df}{Degrees of freedom in chisquare associated with  estimated standard error}
   \item{prop}{Proportion of units randomly selected to fit the distribution}
 }
@@ -21,9 +21,9 @@ mixtwice(thetaHat, s2, Btheta, Bsigma, df, prop)
 }
 \value{
 \item{grid.theta}{Support of the estimated mixing distribution on effects}
-\item{grid.sigma}{Support of the estimated mixing distribution of variances}
+\item{grid.sigma2}{Support of the estimated mixing distribution of variances}
 \item{mix.theta}{Estimated distribution of effect size, on grid.theta}
-\item{mix.sigma}{Estimated distribution of standard error, on grid.sigma}
+\item{mix.sigma2}{Estimated distribution of variance, on grid.sigma2}
 \item{lfdr}{Local false discovery rate for each testing unit}
 \item{lfsr}{Local false sign rate for each testing unit}
 }
@@ -69,7 +69,7 @@ thetaHat = rowMeans(x) ## effect size of each testing unit
 
 s2 = apply(x, 1, sd)^2/n ## estimated variance of effect size
 
-mm1=mixtwice(thetaHat=thetaHat, s2=s2, Btheta = 15, Bsigma = 10, df=n-1, prop=1)
+mm1=mixtwice(thetaHat=thetaHat, s2=s2, Btheta = 15, Bsigma2 = 10, df=n-1)
 
 ## summarize and visualize the result
 
@@ -78,8 +78,8 @@ plot(mm1$grid.theta, cumsum(mm1$mix.theta), type = "s",
      xlab = "grid.theta", ylab = "ecdf of theta", lwd = 2)
 lines(ecdf(mu),cex = 0.1, lwd = 0.5, lty = 2, col = "red")
 
-plot(mm1$grid.sigma, cumsum(mm1$mix.sigma), type = "s",
-     xlab = "grid.sigma", ylab = "ecdf of sigma", lwd = 2)
+plot(mm1$grid.sigma2, cumsum(mm1$mix.sigma2), type = "s",
+     xlab = "grid.sigma2", ylab = "ecdf of sigma2", lwd = 2)
 
 # effect size and estimated local false discovery rate
 
@@ -119,7 +119,7 @@ thetaHat = rowMeans(x1) - rowMeans(x0) ## effect size of each testing unit
 
 s2 = apply(x1, 1, sd)^2/n + apply(x0, 1, sd)^2/n ## estimated variance of effect size
 
-mm2=mixtwice(thetaHat=thetaHat, s2=s2, Btheta = 15, Bsigma = 10, df=2*n-2, prop=1)
+mm2=mixtwice(thetaHat=thetaHat, s2=s2, Btheta = 15, Bsigma2 = 10, df=2*n-2)
 
 ## summarize and visualize the result
 
@@ -128,8 +128,8 @@ plot(mm2$grid.theta, cumsum(mm2$mix.theta), type = "s",
      xlab = "grid.theta", ylab = "ecdf of theta", lwd = 2)
 lines(ecdf(mu),cex = 0.1, lwd = 0.5, lty = 2, col = "red")
 
-plot(mm2$grid.sigma, cumsum(mm2$mix.sigma), type = "s",
-     xlab = "grid.sigma", ylab = "ecdf of sigma", lwd = 2)
+plot(mm2$grid.sigma2, cumsum(mm2$mix.sigma2), type = "s",
+     xlab = "grid.sigma2", ylab = "ecdf of sigma2", lwd = 2)
 
 # effect size and estimated local false discovery rate
 
