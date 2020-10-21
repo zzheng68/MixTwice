@@ -28,30 +28,31 @@ Zheng et al. \emph{MixTwice: Large scale hypothesis testing for peptide arrays b
 
 data(peptide_data)
 
-#### pre-process the data
+#### visualize the data
 
-## effect size
+## each row is a peptide with unique peptide sequence
 
-thetaHat = apply(peptide_data[1:8], 1, mean) - apply(peptide_data[9:16], 1, mean)
+## each column is a subject with information on group and pseudo ID
 
-## standard error
+colnames(peptide_data)
 
-sd1 = apply(peptide_data[,1:8], 1, sd)
-sd0 = apply(peptide_data[,9:16], 1, sd)
+## z-score for peptide
 
-s2 = sd1^2/8 + sd0^2/8
+get_zscore = function(x){
+  
+  n = length(x)
+  
+  t = t.test(x[1:(n/2)], x[(n/2 + 1):n], var.equal = T)$statistic
+  
+  return(qnorm(pt(t, df = n-2)))
+}
 
-#### Apply on MixTwice
+z = apply(peptide_data, 1, get_zscore)
 
-mm = mixtwice(thetaHat = thetaHat, s2 = s2, 
-                  Btheta = 15, Bsigma2 = 10, df = 14, prop = 0.01)
+## visualize the density of z-score
 
-plot(mm$grid.theta, cumsum(mm$mix.theta), type = "s", 
-     xlab = "grid.theta", ylab = "ecdf of theta", lwd = 2)
-plot(mm$grid.sigma2, cumsum(mm$mix.sigma2), type = "s",
-     xlab = "grid.sigma2", ylab = "ecdf of sigma2", lwd = 2)
-
-summary(mm$lfsr)
+hist(z, probability = T, 100, ylim = c(0,0.4), col = "blue")
+lines(density(rnorm(10^5)), lwd =2)
 
 }
 \keyword{datasets}
