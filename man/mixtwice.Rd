@@ -17,7 +17,7 @@ mixtwice(thetaHat, s2, Btheta, Bsigma, df, prop)
   \item{prop}{Proportion of units randomly selected to fit the distribution, with default, \code{prop = 1} (use all units to fit the distribution).}
 }
 \details{
-\code{mixtwice} takes estimated effects and standard errors over a set of testing units. To compute local error-rate statistics, it finds nonparametric  MLEs of the underlying distributions.
+\code{mixtwice} takes estimated effects and standard errors over a set of testing units. To compute local error-rate statistics, it finds nonparametric MLEs of the underlying distributions. It is similar to "ashr", except that mixtwice allows both a mixing distribution of underlying effects theta as well as a mixing distribution over underlying variance parameters.  Furthermore, it treats the effect mixing distribution nonparametrically, but enforces the shape constraint that this distribution is unimodal with mode at theta=0.  (We do not assume symmetry). The distribution of variance parameters is also treated nonparametrically, but with no shape constraints. The observations are assumed to be emitted from a normal distribution (on estimated effects) and an independent Chi-square distribution (on estimated squared standard errors). 
 }
 \value{
 \item{grid.theta}{Support of the estimated mixing distribution on effects}
