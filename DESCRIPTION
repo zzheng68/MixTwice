@@ -3,7 +3,9 @@ Type:   	Package
 Title:   	MixTwice--a package for large-scale hypothesis testing 
 Version: 	1.1
 Imports: 	alabama,
-                ashr
+                ashr,
+		OCplus,
+		fdrtool
 Date:   	2020-10-20
 Author: 	Zihao Zheng and  Michael A.Newton
 Maintainer: 	Zihao Zheng <zihao.zheng@wisc.edu>
