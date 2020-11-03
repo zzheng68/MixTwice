@@ -17,16 +17,9 @@ s2 = sd1^2/8 + sd0^2/8
 
 ## z-score for peptide
 
-get_zscore = function(x){
-  
-  n = length(x)
-  
-  t = t.test(x[1:(n/2)], x[(n/2 + 1):n], var.equal = T)$statistic
-  
-  return(qnorm(pt(t, df = n-2)))
-}
+tstat = OCplus::tstatistics(peptide_data, grp = c(rep(1,8),rep(0,8)))[[1]]
 
-z = apply(peptide_data, 1, get_zscore)
+z = qnorm(pt(tstat, df = 14))
 
 ## p-value for peptide
 
